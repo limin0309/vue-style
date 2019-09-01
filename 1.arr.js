@@ -39,12 +39,41 @@ console.log(mapArr.join('')); // <li>1</li><li>2</li><li>3</li>  必须得加joi
 let arr3=[1,2,3,4,5];
 console.log(arr3.includes(5)); // true  返回的是boolean
 
-// 5) 返回找到的那一项 不会改变数组 回调函数中返回true表示找到了，找到后停止循环
-let result = arr3.find((item,index)=> {  // 需要找到具体的某一项用find
-    return item.toString().indexOf(5)>-1
-    }
-)
+// 5) 返回找到的那一项 不会改变数组 回调函数中返回true表示找到了，找到后停止循环,
+// 找不到返回的是undefined
+// let result = arr3.find((item,index)=> {  // 需要找到具体的某一项用find
+//     return item.toString().indexOf(5)>-1
+//     }
+// )
 
-// 06:00
+// （6）some 找ture 找到true后返回，返回true  找不到返回false
+// let result = arr3.some((item,index)=> {  // 需要找到具体的某一项用find
+//     return item >-1
+//     }
+// )
+//  (7)every 找false，找到false后返回，返回false
+// （8）reduce 收敛四个参数  返回的是叠加后的结果，原数组不发生变化，毁掉函数返回的结果
+//prev 代表的是数组的第一项，next是数组的第二项
+// 第二次prev是undefined，（因为没有返回值，没有return，所以是undefined），next是数组的第三项
+
+let sum=[1,2,3,4,5].reduce(function (prev,next,index,item){
+    console.log(arguments,prev,next)
+    // return 100  // 本地的返回值会作为下一次的上一次prev
+    return prev+next
+})
+
+let sum2=[{price:30,count:2},{price:30,count:3},{price:30,count:4}].reduce(function (prev,next){
+    console.log(prev,next);
+    return prev+next.price*next.count
+},0)
+console.log(sum2)
+
+let flat=[[1,2,3],[4,5,6],[7,8,9]].reduce(function(prev,next){
+    return prev.concat(next)
+})
+console.log(flat)
+
+
+
 
 
