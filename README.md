@@ -24,6 +24,8 @@
 - 通过组合 完成一个完整的框架
 
 ## MVC 单向
-- modal 模型
-- 
+- modal 数据
+- view  试图
+- controller 控制器
+
 
